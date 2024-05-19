@@ -26,8 +26,8 @@
                 class="w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm"
             >
                 <option value="" > -- Selecciona un rol --</option>
-                <option value="1">Developer - Obtener Empleo</option>"
-                <option value="2">Recruiter - Publicar Empleos</option>"
+                <option value="1">Developer - Obtener Empleo</option>
+                <option value="2">Recruiter - Publicar Empleos</option>
             </select>
             
         </div>
