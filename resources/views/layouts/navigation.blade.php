@@ -16,6 +16,11 @@
                         {{ __('Mis vacantes') }}
                     </x-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('vacantes.create')" :active="request()->routeIs('vacantes.create')">
+                        {{ __('Crear vacante') }}
+                    </x-nav-link>
+                </div>
             </div>
 
             <!-- Settings Dropdown -->
@@ -70,6 +75,9 @@
             <x-responsive-nav-link :href="route('vacantes.index')" :active="request()->routeIs('vacantes.index')">
                 {{ __('Mis vacantes') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('vacantes.create')" :active="request()->routeIs('vacantes.create')">
+                {{ __('Crear vacante') }}
+            </x-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->
@@ -91,7 +99,7 @@
                     <x-responsive-nav-link :href="route('logout')"
                             onclick="event.preventDefault();
                                         this.closest('form').submit();">
-                        {{ __('Log Out') }}
+                        {{ __('Cerrar sesion') }}
                     </x-responsive-nav-link>
                 </form>
             </div>
