@@ -1,4 +1,4 @@
-<form class="md:w-1/2 space-y-5">
+<form class="md:w-1/2 space-y-5" wire:submit.prevent='crearVacante'>
 
     <div>
         <x-input-label for="titulo" :value="__('Titulo vacante')" />
@@ -6,7 +6,7 @@
             id="titulo" 
             class="block mt-1 w-full" 
             type="text" 
-            name="titulo" 
+            wire:model="titulo" 
             :value="old('titulo')" 
             placeholder="Desarrollador Web"
         />
@@ -17,10 +17,10 @@
         <x-input-label for="salario" :value="__('Salario mensual')" />
         <select
             id="salario"
-            name="salario"
+            wire:model="salario"
             class="w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm"
         >
-            <option disabled> -- Seleccione -- </option>
+            <option> -- Seleccione -- </option>
             @foreach ($salarios as $salario)
                 <option value="{{ $salario->id}}">{{ $salario->salario}}</option>
             @endforeach
@@ -35,10 +35,10 @@
         <x-input-label for="categoria" :value="__('Categoria')" />
         <select
             id="categoria"
-            name="categoria"
+            wire:model="categoria"
             class="w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm"
         >
-            <option disabled> -- Seleccione -- </option>
+            <option> -- Seleccione -- </option>
             @foreach ($categorias as $categoria)
                 <option value="{{ $categoria->id}}">{{ $categoria->categoria}}</option>
             @endforeach
@@ -54,7 +54,7 @@
             id="empresa" 
             class="block mt-1 w-full" 
             type="text" 
-            name="empresa" 
+            wire:model="empresa" 
             :value="old('empresa')" 
             placeholder="Netflix, Uber, Google"
         />
@@ -67,7 +67,7 @@
             id="ultimo_dia" 
             class="block mt-1 w-full" 
             type="date" 
-            name="ultimo_dia" 
+            wire:model="ultimo_dia" 
             :value="old('ultimo_dia')" 
         />
         <x-input-error :messages="$errors->get('ultimo_dia')" class="mt-2" />
@@ -76,7 +76,7 @@
     <div>
         <x-input-label for="descripcion" :value="__('Descripcion del Puesto')" />
         <textarea
-            name="descripcion"
+            wire:model="descripcion"
             placeholder="Descripcion general del puesto, experiencia"
             class="w-full h-72 border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm"
 
@@ -91,7 +91,7 @@
             id="imagen" 
             class="block mt-1 w-full" 
             type="file" 
-            name="imagen" 
+            wire:model="imagen" 
         />
         <x-input-error :messages="$errors->get('imagen')" class="mt-2" />
     </div>
