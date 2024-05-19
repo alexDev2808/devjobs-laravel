@@ -38,7 +38,10 @@
             name="categoria"
             class="w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm"
         >
-
+            <option disabled> -- Seleccione -- </option>
+            @foreach ($categorias as $categoria)
+                <option value="{{ $categoria->id}}">{{ $categoria->categoria}}</option>
+            @endforeach
         </select>
         
         <x-input-error :messages="$errors->get('categoria')" class="mt-2" />
