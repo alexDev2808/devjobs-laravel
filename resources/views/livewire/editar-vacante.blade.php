@@ -118,7 +118,7 @@
             id="imagen" 
             class="block mt-1 w-full" 
             type="file" 
-            wire:model="imagen" 
+            wire:model="imagen_nueva" 
             accept="image/*"
         />
 
@@ -127,15 +127,17 @@
             <img src="{{ asset('storage/vacantes/' . $imagen ) }}" alt="{{ 'Imagen: ' . $titulo }}" />
         </div>
 
-        {{-- <div>
-            @if ($imagen)
+        <div>
+            @if ($imagen_nueva)
                 <div class="my-5 w-80 p-2 border-4 rounded-lg border-indigo-800">
-                    <img src="{{ $imagen->temporaryUrl() }}" />
+                    <x-input-label :value="__('Imagen nueva: ')" />
+                    
+                    <img src="{{ $imagen_nueva->temporaryUrl() }}" />
                 </div>
             @endif
-        </div> --}}
+        </div>
 
-        @error('imagen')
+        @error('imagen_nueva')
             <livewire:mostrar-alerta 
                 :message="$message"
             />
