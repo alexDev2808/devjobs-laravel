@@ -9,6 +9,9 @@ class Vacante extends Model
 {
     use HasFactory;
 
+    // para fechas
+    protected $dates = ['ultimo_dia'];
+
     protected $fillable = [
         'titulo',
         'salario_id',
