@@ -15,7 +15,7 @@ class VacanteController extends Controller
     public function index()
     {
         //
-
+        $this->authorize('viewAny', Vacante::class); // Policy (Modelo)
         return view('vacantes.index');
     }
 
@@ -64,7 +64,7 @@ class VacanteController extends Controller
     {
         //
         
-        $this->authorize('update', $vacante);
+        $this->authorize('update', $vacante); // Policy (Instancia)
 
         return view('vacantes.edit', [
             'vacante'=> $vacante
