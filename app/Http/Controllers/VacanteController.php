@@ -27,6 +27,7 @@ class VacanteController extends Controller
     public function create()
     {
         //
+        $this->authorize('create', Vacante::class); // Policy (Modelo)
 
         return view('vacantes.create');
     }
