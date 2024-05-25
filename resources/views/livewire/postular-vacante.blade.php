@@ -18,7 +18,7 @@
                 <livewire:mostrar-alerta :message="$message" />
             @enderror
 
-            <x-primary-button class="my-5">
+            <x-primary-button class="my-5" wire:loading.class="opacity-25">
                 {{ __('Postularme') }}
             </x-primary-button>
         </form>
