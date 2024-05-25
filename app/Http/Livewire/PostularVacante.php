@@ -38,6 +38,9 @@ class PostularVacante extends Component
 
 
         // Mostrar al usuario mensaje de ok
+        session()->flash('mensaje','Se envio correctamente la informacion, mucha suerte');
+
+        return redirect()->back();
     }
     public function render()
     {
