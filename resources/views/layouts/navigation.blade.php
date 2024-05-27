@@ -11,17 +11,20 @@
                 </div>
 
                 @auth
-                    <!-- Navigation Links -->
-                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-nav-link :href="route('vacantes.index')" :active="request()->routeIs('vacantes.index')">
-                            {{ __('Mis vacantes') }}
-                        </x-nav-link>
-                    </div>
-                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-nav-link :href="route('vacantes.create')" :active="request()->routeIs('vacantes.create')">
-                            {{ __('Crear vacante') }}
-                        </x-nav-link>
-                    </div>
+                    @can('create', App\Models\Vacante::class)
+
+                        <!-- Navigation Links -->
+                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                            <x-nav-link :href="route('vacantes.index')" :active="request()->routeIs('vacantes.index')">
+                                {{ __('Mis vacantes') }}
+                            </x-nav-link>
+                        </div>
+                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                            <x-nav-link :href="route('vacantes.create')" :active="request()->routeIs('vacantes.create')">
+                                {{ __('Crear vacante') }}
+                            </x-nav-link>
+                        </div>
+                        @endcan
                 @endauth
 
             </div>
@@ -31,7 +34,7 @@
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 @auth
 
-                    @if (auth()->user()->rol === 2)
+                    @can('create', App\Models\Vacante::class)
                         <span class="text-sm font-normal text-gray-500 mr-1">@choice('Notificacion|Notificaciones', auth()->user()->unreadNotifications->count())</span>
                         <a
                             href="{{ route('notificaciones')}}"
@@ -39,7 +42,7 @@
                         >
                         {{ Auth::user()->unreadNotifications->count() }}
                         </a>
-                    @endif
+                    @endcan
 
                     <x-dropdown align="right" width="48">
                         <x-slot name="trigger">
